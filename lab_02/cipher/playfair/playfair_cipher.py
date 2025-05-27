@@ -26,7 +26,6 @@ class PlayFairCipher:
         plain_text = plain_text.upper().replace("J", "I")
         plain_text = ''.join(filter(str.isalpha, plain_text))
 
-        # Chuẩn hóa cặp
         pairs = []
         i = 0
         while i < len(plain_text):
@@ -77,5 +76,8 @@ class PlayFairCipher:
                 decrypted_text += matrix[row1][col2]
                 decrypted_text += matrix[row2][col1]
 
-        # Tùy chọn xử lý hậu giải mã: loại bỏ 'X' nếu cần
+        # Loại bỏ 'X' cuối cùng nếu là padding
+        if decrypted_text.endswith('X'):
+            decrypted_text = decrypted_text[:-1]
+
         return decrypted_text

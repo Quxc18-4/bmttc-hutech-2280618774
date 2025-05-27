@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Kết quả mã hóa/giải mã</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; }
+        .container { max-width: 600px; margin: auto; }
+        .error { color: red; font-weight: bold; }
+        .result-box {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+        a.button {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+        a.button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kết quả {{ operation }} - {{ cipher }}</h1>
+        {% if error %}
+            <p class="error">Lỗi: {{ error }}</p>
+        {% else %}
+            <p><strong>Input:</strong></p>
+            <div class="result-box">{{ input_text }}</div>
+
+            <p><strong>Key:</strong> {{ key }}</p>
+
+            <p><strong>Output:</strong></p>
+            <div class="result-box">{{ result }}</div>
+        {% endif %}
+        <a href="/" class="button">Về trang chủ</a>
+    </div>
+</body>
+</html>
